@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">PassGen - Password Generator</string>
+    <string name="exclaimation">!</string>
+    <string name="configure_your_password_requirements">Configure your password requirements....</string>
+    <string name="lower_case_characters_abcd">Lower Case Characters (abcd......)</string>
+    <string name="upper_case_characters_abcd">Upper Case Characters (ABCD....)</string>
+    <string name="numerical_characters_1234">Numerical Characters (1234....)</string>
+    <string name="symbol_characters">Symbols</string>
+    <string name="password_length_8_128_characters_default">Password Length: 8 - 128 characters (Default</string>
+    <string name="clear">CLEAR</string>
+    <string name="generate">GENERATE</string>
+    <string name="save">SAVE</string>
+    <string name="your_password_is">Your Password is:</string>
+    <string name="spinner_title"> - Select Symbols - </string>
+    <!-- Accessibility strings-->
+    <string name="ac_generated_password">Generated Password.</string>
+    <string name="ac_your_password">Your password is.</string>
+    <string name="ac_clear_button">Clear, returns everything to defaults and clears your password string.</string>
+    <string name="ac_save_button">Save is not available in free version. Instead you can opy to clipboard from the password string which has been generated.</string>
+    <string name="ac_generate_button">Generate password.</string>
+    <string name="ac_seek_bar">Seekbar is used to set the quantity of characters in the Character string. Minimum is 8, maximum is 256</string>
+    <string name="ac_symbols">Symbol Characters? Default is none. You can select all or individual characters.</string>
+    <string name="ac_numerical">Numerical Characters? Default is no.</string>
+    <string name="ac_upper_case">Upper Case Characters? Default is no.</string>
+    <string name="ac_lower_case">Lower Case Characters? Default is no.</string>
+    <string name="ac_instruction">Configure your password requirements.</string>
+    <string name="ac_passgen_desc">Passgen, is a configurable password generator. It is designed to randomly generate passwords to your specification. Passgen Pro, allows for local storage in a secure database.</string>
+</resources>
