@@ -1,37 +1,138 @@
-## Welcome to GitHub Pages
+# PassGen
+## A Password Generator Android Application
 
-You can use the [editor on GitHub](https://github.com/RussC-Xer0n3/PassGen/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+### The Password Generator
+The interesting component of the application was the generator a rewrite from [StackOverflow User cmpbah](https://stackoverflow.com/users/1336707/cmpbah) [and erickson](https://stackoverflow.com/users/3474/erickson) from [here](https://stackoverflow.com/questions/41107/how-to-generate-a-random-alpha-numeric-string). 
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+The logic is simple, grab a random value in the array and add it to the string value until the logical break point (quantity of characters int he password) is met. 
 
-### Markdown
+```
+import java.util.Random;
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+public class Jenny {
 
-```markdown
-Syntax highlighted code block
+    private static String dCase = "";
+    private static String uCase = "";
+    private static String num = "";
+    private static String sym = "";
+    private static int uLength = 24;
+    private static String kee = "";
 
-# Header 1
-## Header 2
-### Header 3
+    private static Random r = new Random();
 
-- Bulleted
-- List
+    public static String Generate(){
+        int l = getUCase().length();
+        int u = getDCase().length();
+        int n = getNum().length();
+        int s = getSym().length();
 
-1. Numbered
-2. List
+        while (getKee().length () != getULength()){
+            int rJen = r.nextInt(4);
+            switch (rJen){
+                case 0:
+                    if(getDCase() == ""){
+                        break;
+                    }else {
+                        int lGrab = r.nextInt(u);
+                        setKee(getKee() + getDCase().charAt(lGrab));
+                    }break;
+                case 1:
+                    if(getUCase() == ""){
+                        break;
+                    }else {
+                        int uGrab = r.nextInt(l);
+                        setKee(getKee() + getUCase().charAt(uGrab));
+                    }break;
+                case 2:
+                    if(getSym() == ""){
+                        break;
+                    }else {
+                        int sGrab = r.nextInt(s);
+                        setKee(getKee() + getSym().charAt(sGrab));
+                    }break;
+                case 3:
+                    if(getNum() == ""){
+                        break;
+                    }else {
+                        int nGrab = r.nextInt(n);
+                        setKee(getKee() + getNum().charAt(nGrab));
+                    }break;
+            }
+        }
+        return getKee();
+    }
 
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+    public static void main (String[] args) {
+        String key = Generate();
+        System.out.println(key);
+    }
 ```
 
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
+### Selectors
+What was more interesting was adding in the selectors requirements, for example if the site requires only alphanumerics you would make that selection in the check boxes
 
-### Jekyll Themes
+```
+ public void setList() {
+        list.add("@"); list.add("#"); list.add("$"); list.add("%"); list.add("^"); list.add("~");
+        list.add("&"); list.add("*"); list.add(";"); list.add(":"); list.add("\""); list.add("+");
+        list.add("-"); list.add("_"); list.add("="); list.add("/"); list.add("£"); list.add(".");
+    }
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/RussC-Xer0n3/PassGen/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+    public void onCheckboxClicked(View view) {
 
-### Support or Contact
+        // Is the checkbox checked?
+        boolean checked = ((CheckBox) view).isChecked();
+        // Check which checkbox was clicked and do something.
+        switch (view.getId()) {
+            case R.id.lower_checkbox:
+                if (checked) {
+                    jenny.setDCase("abcdefghijklmnopqrstuvwxyz");
+                } else {
+                    jenny.setDCase("");
+                }
+                break;
+            case R.id.upper_checkbox:
+                if (checked) {
+                    jenny.setUCase("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
+                } else {
+                    jenny.setUCase("");
+                }
+                break;
+            case R.id.numerical_checkbox:
+                if (checked) {
+                    jenny.setNum("0123456789");
+                } else {
+                    jenny.setNum("");
+                    break;
+                }
+        }
+    }
+```
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+### Database storage
+I found this element of the interface quite difficult and is still nto complete following some space issues on the old laptop and account changes from russellclarke82 and developing82.
+
+Ther database is intended to store passwords securely as a password manager as part of the paid version which was going to come into play, however, a lot more code is required and it will take some time.
+
+Theres obviously an account login section required first off and then to secure and hash the data whilst it is stored in a secure storage file locally or backed up to the account of the user. The code is old code and there has been some progress with the Database feature of the app, not worth mentioning.
+```
+package com.local.russellclarke.passgen;
+
+public class db {
+
+    void onCommit(){
+
+    }
+
+    void onCommit(){
+
+    }
+
+    void onRollback(){
+
+    }
+}
+```
+
+### What next?
+To complete the paid version and have it hosted for anyone who wants it?
